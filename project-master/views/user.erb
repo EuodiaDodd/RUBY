@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang ="en"> 
+    <%= erb :header %>
+    <body>
+        <% if @submitted && @all_ok%>
+            <%= erb :userAccount %>
+        <% else %>
+            <%= erb :loginheader %>
+            <h1>Tweet A Taxi</h1>
+            <% if @submitted && !@all_ok %>
+                <p id='message'>Incorrect username/password, please try again.</p>
+            <%end%>
+            
+            <form method="post" action="user_logged_in">
+                <div class="col-md-offset-5">
+                  <div class="form-group col-md-4">
+                    <div class="col">
+                        <label for = "twitterhandle">Enter Twitter Username:</label>
+                        <input type="text" name="handle" class="form-control" id="twitterhandle" placeholder="@example">
+                    </div>
+                    <div class="col">
+                          <div class="input-group">
+                              <label for = "password">Enter your password:</label>
+                           </div>
+                        <input type="password" name = "password" class="form-control" id="password" placeholder="password">
+                    </div>
+                      <a href="/createAccount" class = "login-links">Create Account</a>
+                      <br/>
+                      <a href="/resetPassword" class = "login-links">Reset Password</a>
+                      <br/> 
+                    <button type="submit" class="btn btn-info">Submit</button>
+                  </div>
+                </div>
+            </form>
+        <%end%>
+        
+    </body>
+</html>

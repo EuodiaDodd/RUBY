@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :adminheader %>
+    
+    <body>
+        <h1>History</h1>
+        <p>Database of history for users which admins can search</p>
+        <form method="post" action="admin_city_search">
+            <input type="text" name="city" class="form-control" id="adminCity" placeholder="Search for city here">
+            <button type="submit" class="btn btn-success">Search</button>
+        </form>
+        <div style="overflow: scroll;"> 
+            <table class="table table-bordered table-responsive">
+                  <thead>
+                    <tr>
+                      <th scope="col">Order Number</th>
+                      <th scope="col">Twitter Handle</th>
+                      <th scope="col">Origin</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Car</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% unless @results.nil? %>
+                        <% @results.each do |record| %>
+                        <%if record[7] == "Completed" %>
+                            <tr>
+                                <td><%=h record[0] %></td>
+                                <td><%=h record[1] %></td>
+                                <td><%=h record[2] %></td>
+                                <td><%=h record[3] %></td>
+                                <td><%=h record[4] %></td>
+                                <td><%=h record[5] %></td>
+                                <td><%=h record[6] %></td>
+                                <td><%=h record[7] %></td>
+                                <td><%=h record[8] %></td>
+                            </tr>
+                        <%end%>
+                        <%end%>
+                        <%end%>
+                        </tbody>
+                </table>
+        </div>
+        
+        
+    </body>
+</html>

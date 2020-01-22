@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <body>
+           <table class="table table-bordered table-responsive">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">User</th>
+                      <th scope="col">Tweet</th>
+                    </tr>
+                    </thead>
+                    <% @tweets.each do |tweet|  %>
+                     
+                    <tbody>
+                        <tr>
+                          <td>
+                            <a href="<%=h tweet.uri %>">
+                              <%=h tweet.id %>
+                            </a>
+                          </td>
+                      
+                          <td>
+                            <a href="<%=h tweet.user.uri %>">
+                              <%=h tweet.user.screen_name %>
+                            </a>
+                          </td>
+                            
+                          <td>
+                            <%=h tweet.text %>
+                            <% if @tweetHash.has_key?(tweet.id)
+                                
+                             @replies = @tweetHash.select{|key, value| key == tweet.id }
+                              @replies.each do |key, reply| %>
+                            <br>
+                            <a><%=h reply %></a>
+                            <% end %>
+                            <% end %>
+                          </td>
+                        </tr>
+                    </tbody>
+                    <% end rescue nil%>
+                
+                </table>
+        
+    </body>
+</html>

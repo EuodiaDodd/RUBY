@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang ="en">
+    
+    
+    <body>
+        
+        <% if @submitted && @all_ok%>
+            <%= erb :userAccount %>
+        <% else %>
+        <%= erb :loginheader %>
+            <% if @submitted && !@all_ok %>
+                <p id='message'>Passwords do not match, please try again.</p>
+            <%end%>
+            <h1 class="override">Create An Account</h1>
+            <form action="create_account" method="post">
+                
+                <div class="col-md-offset-5">
+                  <div class="form-group col-md-4">
+                    <div class="col">
+                        <label for = "name">Enter your full name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="John Smith">
+                    </div>
+                    
+                    <div class="col">
+                        <label for = "handle">Enter Twitter Handle:</label>
+                        <input type="text" name="handle" class="form-control" placeholder="@example">
+                    </div>
+
+                    <div class="col">
+                          <div class="input-group">
+                              <label for = "password">Enter your password:</label>
+                          </div>
+                        <input type="password" id="password1" name="password" class="form-control" placeholder="password">
+                    </div>
+                      
+                    <div class="col">
+                         <div class="input-group">
+                             <label for="passwordRepeat">Re-enter your password:</label>
+                         </div>
+                       <input type="password" id="password2" name="passwordRepeat" class="form-control" placeholder="password">
+                    </div>
+                      
+                    <a href= "/user" class = "login-links">User Login</a>
+                    <br/>
+                      
+                    <button type="submit" class="btn btn-info">Create</button>
+                  </div>
+                </div>
+        </form>
+        <%end%>
+    </body>
+    
+</html>

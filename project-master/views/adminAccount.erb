@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang ="en">
+<%= erb :adminheader %>
+    <body>
+        <h1>Admin Dashboard</h1>        
+        <div class="col-md-6 text-left">
+          <h2>Incoming Tweets</h2>
+          <form action="messages" method="get">
+              <button type="submit" name="sendtweets" class="btn btn-info">Send Tweet</button>
+          </form>
+          <br/>
+          <%= erb :tweetsTable %>
+        </div>
+
+        <div class="col-md-6 text-left col-border">
+           <h2>Ongoing Orders</h2>
+               <form action="orders" method="get">
+                   <button type="submit" name="orders" class="btn btn-info" >New Order</button>
+               </form>
+            <br/>
+           <%= erb :ordersTable %>
+        </div>
+    <br/>   
+  
+
+    </body>
+    
+</html>

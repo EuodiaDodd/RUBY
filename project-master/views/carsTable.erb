@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang ="en">
+    
+    <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Order Number</th>
+                      <th scope="col">Car model</th>
+                      <th scope="col">Number of seats</th>
+                      <th scope="col">Registration Plate</th>
+                      <th scope="col">Colour</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% unless @results.nil? %>
+                        <% @results.each do |record| %>
+
+                            <tr>
+                                <td><%=h record[0] %></td>
+                                <td><%=h record[1] %></td>
+                                <td><%=h record[2] %></td>
+                                <td><%=h record[3] %></td>
+                                <td><%=h record[4] %></td>
+                                <td><%=h record[5] %></td>
+                            </tr>
+
+                </tbody>
+                        <% end %>
+                </table>
+        <%end%>
+   
+    
+</html>

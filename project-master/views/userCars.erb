@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :userheader %>
+    <style>
+    .images {
+        text-align: center;
+    }
+    </style>
+        <body>
+            <h1>Car Information</h1>
+                <p> For information on cars see below.</p>
+            
+            <p class="lead mb-0"><strong>Small: (up to 4 passengers)</strong></p>
+                    <div class="images">
+                        <img class="img-circle" src="/images/smallcar.jpg" width="20%">
+                    </div>
+                <p class="lead mb-0"><strong>Medium: (up to 6 passengers)</strong></p>
+                    <div class="images">
+                        <img class="img-circle" src="/images/mediumcar.jpg" width="20%">
+                    </div>
+                <p class="lead mb-0"><strong>Large: (up to 7 passengers)</strong></p>
+                    <div class="images">
+                        <img class="img-circle" src="/images/largecar.jpg" width="20%">
+                    </div>
+                <p class="lead mb-0"><strong>Extra Large: (up to 10 passengers)</strong></p>
+                    <div class="images">
+                        <img class="img-circle" src="/images/xlcar.jpg" width="20%">
+                    </div>
+        </body>
+</html>
+<%= erb :footer %>

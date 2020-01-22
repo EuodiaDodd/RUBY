@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang ="en">
+    
+    <%= erb :userheader %>
+    
+        <body>
+            <h1>Offers</h1>
+            <%if @redeemTrigger %>
+                <%if @isOfferValid %>
+                    <p>Code redeemed</p>
+                <%else%>
+                    <p>Code does not exist or is already redeemed, please enter another code</p>
+                <%end%>
+                <a href=/offers>Back</a>
+            <%else%>
+                <% if @offerTable.nil? %>
+                    <p>There are no offers to display</p>
+                <%else%>
+                    <form method="post" action="offer_redeemed">
+                        <p>Please input the 6 letter code of the offer to redeem</p>
+                        <input type="text" name="code" class="form-control" id="userCode" placeholder="E.g. AAAAAA">
+                        <button type="submit" class="btn btn-success">Redeem</button>
+                    </form>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th scope="col">Twitter Handle</th>
+                          <th scope="col">Code</th>
+                          <th scope="col">Offer Type</th>
+                          <th scope="col">Redeemed</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% @offerTable.each do |record| %>
+                                <tr>
+                                    <td><%=h record[0] %></td>
+                                    <td><%=h record[1] %></td>
+                                    <td><%=h record[2] %></td>
+                                    <td>
+                                        <% if record[3] == "no"%>
+                                            <p>Redeemable</p>
+                                        <% elsif record[3] == "showcode"%>
+                                            <p>Show code <%=record[1]%> to driver</p>
+                                        <%else%>
+                                            <p>Redeemed</p>
+                                        <%end%>
+                                    </td>
+                                </tr>
+                            <%end%>
+                         <%end%>
+                     </tbody>
+                </table>
+            <%end%> 
+        </body>
+</html>
+<%= erb :footer %>

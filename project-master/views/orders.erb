@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :adminheader %>
+    <head>
+        <title>Orders</title>
+    </head>
+    
+    <body>
+        <% if @submitted && @all_ok %>
+            <%redirect '/allOrders' %>
+        <% else %>
+            <h1>Orders</h1>
+                <form method="post" action="orders">
+                        <div class="col-md-offset-5">
+                          <div class="form-group col-md-4">
+                            <div class="col">
+                                <label for = "origin">Origin</label>
+                                <input type="text" name="origin" class="form-control" id="origin" placeholder="eg Botanical Gardens">
+                            </div>
+                            <% if @submitted && !@origin_ok %>
+                                 <p name="origin_error" id='message' style = 'text-align:left;'>Please enter origin.</p>
+                            <%end%>
+                              
+                            <div class="col">
+                                  <div class="input-group">
+                                      <label for = "destlabel">Destination</label>
+                                   </div>
+                                <input type="text" name="destination" class="form-control" id="destlabel" placeholder="eg Train Station">
+                            </div>
+                            <% if @submitted && !@destination_ok %>
+                                 <p id='message' style = 'text-align:left;'>Please enter destination.</p>
+                            <%end%>
+                              
+                            <div class="col">
+                                <label for = "car">Car Model</label>
+                                <input type="text" name="car" class="form-control" id="car" placeholder="eg Toyota">
+                              </div>
+                            <% if @submitted && !@car_ok %>
+                                 <p id='message' style = 'text-align:left;'>Please enter car.</p>
+                            <%end%>
+                              
+                            <div class="col">
+                                <label for = "twitterhandle">Twitter Handle</label>
+                                <input type="text" name="twitterhandle" class="form-control" id="twitterhandle" placeholder="eg @twitterhandle">
+                            </div>
+                            <% if @submitted && !@twitterhandle_ok %>
+                                 <p id='message' style = 'text-align:left;'>Please enter user's twitter handle.</p>
+                            <%end%>
+                              
+                            <div class="col">
+                                <label for = "city">City</label>
+                                <input type="text" name="city" class="form-control" id="city" placeholder="eg Sheffield">
+                            </div>
+                            <% if @submitted && !@city_ok %>
+                                 <p id='message' style = 'text-align:left;'>Please enter city.</p>
+                            <%end%>  
+                              
+                            <br/>
+                            <button type="submit" class="btn btn-info">Create Order</button>
+                          </div>
+                        </div>
+                    </form>
+            <% end %>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :header %>
+    <body>
+        <style>
+            .btn-icon {
+                 border-radius: 10%;
+                 border:none;
+                 color: white;
+                 padding: 5px 6px;
+            }
+        </style>
+        <div style="overflow: scroll;"> 
+            <table class="table table-bordered table-responsive">
+                  <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Order Number</th>
+                      <th scope="col">Twitter Handle</th>
+                      <th scope="col">Origin</th>
+                      <th scope="col">Destination</th>
+                      <th scope="col">Car</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">City</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% unless @results.nil? %>
+                        <% @results.each do |record| %>
+                            <%if record[7] == "Ongoing" %>
+                            <tr>
+                                <td>
+                                    <div class="btn-group mr-2" role="group">
+                                        <form method="post" action="cancelOrder" >
+                                            <button name = "orderNumber" value = "<%=h record[0] %>" style= "background-color:FireBrick"class="btn-icon"><span style="font-size:17px;" class="glyphicon glyphicon-trash"></span></button>
+                                        </form>
+                                        <form method="post" action="completeOrder" >
+                                            <button name = "orderNumber" value = "<%=h record[0] %>" style= "background-color:green"class="btn-icon"><span style="font-size:17px;" class="glyphicon glyphicon-ok"></span></button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td><%=h record[0] %></td>
+                                <td><%=h record[1] %></td>
+                                <td><%=h record[2] %></td>
+                                <td><%=h record[3] %></td>
+                                <td><%=h record[4] %></td>
+                                <td><%=h record[5] %></td>
+                                <td><%=h record[6] %></td>
+                                <td><%=h record[7] %></td>
+                                <td><%=h record[8] %></td>
+                            </tr>
+                        <%end%>
+                        <%end%>
+                        <%end%>
+                        </tbody>
+                </table>
+        </div>
+    </body>
+</html>

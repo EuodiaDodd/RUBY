@@ -1,0 +1,70 @@
+h1 {
+    color: black;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F3F3F2;
+}
+
+.text-center {
+    background-color: #F3F3F2;
+}
+
+p {
+    text-align: center;
+    background-color: #F3F3F2;
+    padding: 25%;
+}
+
+#message {
+    color: red;
+    padding: 0;
+}
+
+hr.style5 {
+	background-color: #fff;
+	border-top: 2px dashed #8c8b8b;
+}
+
+
+html, hr.style2 {
+    background-color: #F3F3F2;
+}
+
+.login-links {
+    color : #5bc0de;
+    float: right;
+} 
+
+.links {
+    color : #5bc0de;
+    padding: 15%;
+}
+
+.tables {
+    padding: 10%;
+}
+
+.glyphicon {
+    font-size: 70px;
+}
+
+.fa {
+    font-size:70px;
+}
+
+@media only screen and (min-width: 1250px){
+    .col-sm-6{
+        width:50%;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :adminheader %>
+    <body>
+        <h1>New Car</h1>
+        <% if @submitted && @all_ok %>
+            <%= erb :cars %>
+        <% else %>
+            <% if @submitted && !@all_ok %>
+                <p id='message'>There were errors in your form, please try again.</p>
+            <%end%>
+            <form method="post" action="newCar">
+                    <div class="col-md-offset-5">
+                      <div class="form-group col-md-4">
+                        <div class="col">
+                            <label for = "Car model">Car Model</label>
+                            <input type="text" name="Car_model" class="form-control" id="Car_model" placeholder="eg Toyota">
+                        </div>
+                        <div class="col">
+                              <div class="input-group">
+                                  <label for = "seatslabel">Number of seats</label>
+                               </div>
+                            <input type="text" name="Number_of_seats" class="form-control" id="seatslabel" placeholder="eg 4">
+                        </div>
+                        <div class="col">
+                            <label for = "carlabel">Car registration</label>
+                            <input type="text" name="Car_registration" class="form-control" id="carlabel" placeholder="LA51ABC">
+                        </div>
+                        <br/>
+                         <div class="col">
+                            <label for = "colourlabel">Colour</label>
+                            <input type="text" name="Car_colour" class="form-control" id="colourlabel" placeholder="eg red">
+                        </div>
+                        <br/>
+                        <button type="submit" class="btn btn-info">Enter New Car</button>
+                      </div>
+                    </div>
+                </form>
+        <%end%>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <% if request.cookies['userState'] == 'Admin'%>
+        <%= erb :adminheader %>
+    <%else%>
+        <%= erb :userheader %>
+    <%end%>
+    
+        <h1>Cars</h1>
+           <form class="inline">
+               <a href="newCar" role="button" class="btn btn-info">New Car</a>
+           </form>      
+       <%= erb :carsTable %>
+    
+</html>
+
+

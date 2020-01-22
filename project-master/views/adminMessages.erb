@@ -1,0 +1,22 @@
+<html lang ="en">
+    <%= erb :adminheader %>
+    <body>
+        <h1>Admin message centre</h1>
+        <p>Send tweets:</p>
+            <form method="post" action="form_handler">
+                <div class="col-md-offset-5">
+                  <div class="form-group col-md-4">
+                    
+                    <div class="col">
+                          <div class="input-group">
+                              <label for = "messagelabel">Enter your tweet:</label>
+                           </div>
+                        <input type="text" name="tweet" class="form-control" id="messagelabel" placeholder="message">
+                      </div>
+                    <button type="submit" class="btn btn-info">Send</button>
+                  </div>
+                </div>
+            </form>
+    </body>
+</html>
+        

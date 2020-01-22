@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :userheader %>
+    
+    
+<style>
+    .glyphicon {
+    font-size: 70px;
+}
+    
+    .mainheading{
+        font-size: 50px;
+        font-weight: bold;
+    }
+</style>
+    
+    <body>
+        <h1 class="mainheading">Welcome!</h1>
+        <br/>
+
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+              <span class="glyphicon glyphicon-time"></span>
+              <h3>Your Order History</h3>
+            <p class="lead mb-0">View all your previous orders here with information on time, date and locations of your journeys.</p>
+            <form action="history" method="get">
+                <button type="submit" class="btn btn-outline-dark" >History</button>
+            </form>
+        </div>
+          
+        <div class="col-lg-4">
+            <i class="fa fa-cab" style="font-size:70px;"></i>
+            <h3>Our Cars</h3>
+            <p class="lead mb-0">View information on what cars we can provide our customers with.</p><br/>
+            <form action="userCars" method="get">
+                <button type="submit" class="btn btn-outline-dark">Car Information</button>
+            </form>
+            <br/> 
+        </div>
+          
+        <div class="col-lg-4">
+            <span class="glyphicon glyphicon-star-empty"></span>
+            <h3>Offers</h3>
+            <p class="lead mb-0">Find out if you are eligible for one of our discounts.</p>
+            <br/>
+            <form action="offers" method="get">
+                <button type="submit" class="btn btn-outline-dark">Offers Information</button>
+            </form>
+        </div>
+      </div>
+    </div>
+   
+  </section>
+  <br/>
+  <br/>
+        
+        <h1>Ordering Your Taxi</h1>
+        <div class = "m-auto">
+            <p class="lead">To order one of our taxis all you have to do is tweet us @ise19team02 with your pick up location, destination, city and how many passengers will be travelling.</p>
+            <p class="lead">If you wish to cancel your order or have any questions, simply tweet us using the same twitter handle you used to order in the first place.</p>
+        </div>
+            
+
+  <br/>   
+  <%=erb :footer %>      
+            
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :adminheader %>
+    <body>
+        <h1>Create Offer</h1>
+            
+            <form action="create_offer_post" method="post">
+                <div class="col-md-offset-5">
+                    <div class="form-group col-md-4">
+                        <div class = "col">
+                            <p>These are the possible offer names:</p>
+                            <%@possibleOffers.each do |offer|%>
+                                <p><%=offer%></p>
+                            <%end%>
+                            <% if @submitted && !@offer_ok %>
+                                <p id='message'>Invalid offer name.</p>
+                            <% elsif @submitted && @offer_ok%>
+                                <p>Thanks for your submission.</p>
+                            <%end%>
+                            <label for = "offerName">Enter the offer name:</label>
+                            <input type="text" name="offerName" class="form-control" placeholder="50%OFF">
+                        </div>
+                        
+                        <div class="col">
+                            <label for = "userHandle">Enter the twitter handle you want to give the offer to:</label>
+                            <input type="text" name="userHandle" class="form-control" placeholder="@example">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-success">Accept</button>
+                        
+                    </div>
+                </div>
+            </form>
+        <a href="/adminOffers">back</a>
+    </body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :adminheader %>
+    <body>
+        <h1>Offers Overview</h1>
+        <p>These are the current active offers, use the box below to accept offers</p>
+        
+        <%if !@isCodeValid%>
+            <p id='message'>Please input a valid code</p>
+        <%end%>
+        
+        <p style="text-align:left;">Want to create a new offer? Click the button below</p>
+        <a href="/createOffer" class="btn btn-info">Create Offer</a>
+        
+        <form method="post" action="offer_post">
+            <p>Please input the 6 letter code of the offer to accept (Case Sensitive)</p>
+            <input type="text" name="code" class="form-control" id="userCode" placeholder="E.g. AAAAAA">
+            <button type="submit" class="btn btn-success">Accept</button>
+        </form>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Twitter Handle</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Offer Type</th>
+                    <th scope="col">Redeemed</th>
+                </tr>
+            </thead>
+        <tbody>
+            <% @adminOfferTable.each do |record| %>
+                <tr>
+                    <td><%=h record[0] %></td>
+                    <td><%=h record[1] %></td>
+                    <td><%=h record[2] %></td>
+                    <td><%=h record[3] %></td>
+                </tr>
+            <%end%>
+        </tbody>
+        </table>
+    </body>

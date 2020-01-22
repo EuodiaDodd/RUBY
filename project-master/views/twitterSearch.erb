@@ -1,0 +1,61 @@
+<html lang ="en">
+    <%= erb :adminheader %>
+    
+    <head>
+        <title>Custom Twitter Search</title>
+    </head>
+    
+    <body>
+    <h1>Custom Twitter Search</h1>
+
+    <form method="get">
+        <div class="col-md-offset-5">
+            <div class="form-group col-md-4">
+                <label for = "searchbox">Enter search items:</label>
+                <input type="text" name="search" class="form-control" value="<%= params[:search] %>"/>
+                <br/>
+                <button type ="submit" class="btn btn-info" value="submit">Enter</button>
+            </div>
+        </div>
+     </form>
+        
+    <% unless @tweets.nil? %>
+        <% if @tweets.length == 0 %>
+            <p>No search results found!</p>
+        <% else %>
+            <br/>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th scope ="col">ID</th>
+                  <th scope ="col">User</th>
+                  <th scope ="col">Text</th>
+                </tr>
+                </thead>
+                <% @tweets.each do |tweet| %>
+                <tbody>
+                    <tr>
+                        
+                      <td>
+                        <a href="<%= tweet.uri %>">
+                          <%= tweet.id %>
+                        </a>
+                      </td>
+                        
+                      <td>
+                        <a href="<%= tweet.user.uri %>">
+                          <%= tweet.user.screen_name %>
+                        </a>
+                      </td>
+                        
+                      <td>
+                        <%= tweet.text %>
+                      </td>
+                    </tr>
+                </tbody>
+                <% end %>
+            </table>
+        <% end %>
+        <% end %>
+    </body>
+</html>

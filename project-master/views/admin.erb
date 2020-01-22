@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <%= erb :header %>
+    <body>
+<!-------------admin login---------------->
+        
+        <% if @submitted && @all_ok %>
+            <%= erb :adminAccount %>
+        <% else %>
+            <%= erb :loginheader %>
+           <h1>Admin Login</h1>
+            <% if @submitted && !@all_ok %>
+                <p id='message'>Incorrect username/password, please try again.</p>
+            <%end%>
+            <form method="post" action="admin_logged_in">
+                <div class="col-md-offset-5">
+                  <div class="form-group col-md-4">
+                    <div class="col">
+                        <label for = "usernamelabel">Enter Username:</label>
+                        <input type="text" name="username" class="form-control" id="usernamelabel" placeholder="username">
+                    </div>
+                    <div class="col">
+                          <div class="input-group">
+                              <label for = "passwordlabel">Enter your password:</label>
+                           </div>
+                        <input type="password" name="password" class="form-control" id="passwordlabel" placeholder="password">
+                    </div>
+                      <br/> 
+                    <button type="submit" class="btn btn-info" >Submit</button>
+                  </div>
+                </div>
+            </form>
+        <%end%>
+    </body>
+</html>
